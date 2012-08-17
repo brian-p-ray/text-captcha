@@ -140,73 +140,56 @@
 	};
 	
 	$.fn.textCaptchaCheck = function() {
-		$(this).submit(function(){ //captcha error checking
+		var value,
+			correct_value = '',
+			captcha_type = $('#captcha_type').val(),
+			captcha_method = $('#captcha_method').val(),
+			captcha_user = $('#captcha_user').val();
+		
+		if (captcha_type == 'text') {
+			value = $('#captcha_value').val().split(""); //grab the captcha value and turn it into an array
+		}
+		else {
+			value = $('#captcha_value').val();
+		}
 
-			$('.captcha_error').hide();
-	
-			if ($('#captcha_user').val() != '') {
-				var value;
-				var correct_value = '';
-				var captcha_type = $('#captcha_type').val();
-				var captcha_method = $('#captcha_method').val();
-				var captcha_user = $('#captcha_user').val();
-				
-				if (captcha_type == 'text') {
-					value = $('#captcha_value').val().split(""); //grab the captcha value and turn it into an array
-				}
-				else {
-					value = $('#captcha_value').val();
-				}
-	
-				switch(captcha_method) {
-					case 'alphabetic':
-						value = value.sort(); //if alphabetic, sort the array
-					break;
-					
-					case 'backwards': //if backwards, reverse the array
-						value = value.reverse();
-					break;
-					
-					case 'reverse_alphabetic': // if reverse alphabetic, sort the array and reverse
-						value = value.sort();
-						value = value.reverse();
-					break;
-					
-					case 'add':
-						value = eval(value);
-					break;
-					
-					case 'multiply':
-						value = eval(value);
-					break;
-				}
-				
-				if (captcha_type == 'text') {
-					correct_value = value.join(''); //turn the array back into a string
-				}
-				else {
-					correct_value = value;
-				}
-				log('value: '+value+' correct_value: '+correct_value);
-	
-				if (captcha_user != correct_value) { //if the user inputted value does not match the modified string
-					$('.captcha_error').html('The entered data is incorrect');
-					$('.captcha_error').show();
-					$('#captcha_user').val('');
-					$('#captcha_user').focus();
-					return false;
-				}
-				else {
-					return true;
-				}
-			}
-			else { // if #captcha_user == ''
-				$('.captcha_error').html('The field is empty');
-				$('.captcha_error').show();
-				$('#captcha_user').focus();
-				return false;
-			}
-		});
+		switch(captcha_method) {
+			case 'alphabetic':
+				value = value.sort(); //if alphabetic, sort the array
+			break;
+			
+			case 'backwards': //if backwards, reverse the array
+				value = value.reverse();
+			break;
+			
+			case 'reverse_alphabetic': // if reverse alphabetic, sort the array and reverse
+				value = value.sort();
+				value = value.reverse();
+			break;
+			
+			case 'add':
+				value = eval(value);
+			break;
+			
+			case 'multiply':
+				value = eval(value);
+			break;
+		}
+		
+		if (captcha_type == 'text') {
+			correct_value = value.join(''); //turn the array back into a string
+		}
+		else {
+			correct_value = value;
+		}
+		log('value: '+value+' correct_value: '+correct_value);
+
+		if (captcha_user != correct_value) { //if the user inputted value does not match the modified string
+			return false;
+		}
+		else {
+			return true;
+		}
 	};
 	
 })(jQuery);

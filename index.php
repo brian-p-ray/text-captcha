@@ -9,17 +9,31 @@
 			}
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
 		<script type="text/javascript" src="jquery.textCaptcha.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 
 				$('#testform').textCaptcha({
-					type: 'random', // type can be text, number or random
-					method: 'random', //
+					type: 'number', // type can be text, number or random
+					method: 'add', //
 					length: 4 //Length can be any number, somewhere between 4 and 6 would probably be best
 				});
-
-				$('#testform').textCaptchaCheck();
+				
+				$.validator.addMethod("captchaCheck",
+					function() {
+						return $('#testform').textCaptchaCheck();
+					},
+					"Captcha value does not match");
+				
+				$("#testform").validate({
+					rules: {
+						captcha_user: {
+							required: true,
+							captchaCheck: true
+						}
+					}
+				});
 			});
 		</script>
 	</head>
