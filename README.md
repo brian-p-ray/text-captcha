@@ -1,4 +1,5 @@
 # Text Captcha
+---
 
 This came about because I was building a website and one of the goals was to have no images on the entire site. I didn't want to use something like recaptcha for human testing. It allows for both alphabetic and mathmatic testing.
 
@@ -23,15 +24,22 @@ or as complicated as
 
 ## Options
 
-	
-	type: text
-		methods:
-			alphabetic // informs users to type characters in alphabetic order
-			reverse_alphabetic // informs users to type characters in reverse alphabetic order
-			backwards // informs users to 
-			random
-		number
-			add
-			multiply
-			random
-		random
+### Types
+**text** *Alphabetic functions*
+
+**number** *Mathmatical functions*
+
+**random** *Self explanitory*
+
+### Methods
+**alphabetic** *Asks user to sort alphabetically, only applies to **text** type*
+
+**reverse alphabetic** *Asks user to enter characters in reverse alphabetic order, only applies to **text** type*
+
+**backwards** *Asks user to enter characters backwards, only applies to **text** type*
+
+**add** *Asks user to add numbers, only applies to **number** type*
+
+**multiply** *Asks user to multiply numbers, only applies to **number** type*
+
+**random** *Chooses random method for chosen type, not necessary if using random type*
