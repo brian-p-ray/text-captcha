@@ -1,4 +1,4 @@
-# Text Captcha
+# Text Captcha jQuery plugin
 
 This came about because I was building a website and one of the goals was to have no images on the entire site. I didn't want to use something like recaptcha for human testing. It allows for both alphabetic and mathmatic testing. One of the main drawbacks to this as of right now is that it only supports one form per page as of right now.
 
