@@ -10,7 +10,7 @@
 		</style>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
 		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
-		<script type="text/javascript" src="jquery.textCaptcha.js"></script>
+		<script type="text/javascript" src="jquery.textCaptcha.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 
@@ -39,7 +39,11 @@
 	</head>
 
 	<body>
-		<form method="post" id="testform" action="functions.php">
+		<form method="post" id="testform" action="">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" />
+			<label for="email">Email</label>
+			<input type="text" id="email" name="email" />
 			<input type="submit" value="check" id="form_submit" />
 		</form>
 	</body>

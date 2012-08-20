@@ -1,10 +1,8 @@
 /*!
 * jQuery Text Captcha Plugin
-* Examples and documentation at: http://brianray.net/code
-* Copyright (c) 2011 Brian Ray
-* Version: 0.1 (18-JUN-2011)
+* Copyright (c) 2012 Brian Ray
+* Version: 0.1 (19-AUG-2012)
 * Dual licensed under the MIT and GPL licenses.
-* http://brianray.net/license
 * Requires: jQuery v1.4.2 or later
 */
 (function($){
