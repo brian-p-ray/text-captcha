@@ -119,7 +119,6 @@
 			function output(el) {
 				var output = '<p><span id="type_captcha_method">'+captcha_method_text+'</span>: <span id="captcha">'+captcha_string+'</span></p>';
 				output += '<input type="text" id="captcha_user" name="captcha_user" />';
-				output += '<span class="captcha_error"></span>';
 				output += '<input type="hidden" id="captcha_type" name="captcha_type" value="'+options.type+'" />';
 				output += '<input type="hidden" id="captcha_method" name="captcha_method" value="'+options.method+'" />';
 				output += '<input type="hidden" id="captcha_value" name="captcha_value" value="'+captcha_string+'" />';
