@@ -1,12 +1,16 @@
 # Text Captcha jQuery plugin
 
-This came about because I was building a website and one of the goals was to have no images on the entire site. I didn't want to use something like recaptcha for human testing. It allows for both alphabetic and mathmatic testing. One of the main drawbacks to this as of right now is that it only supports one form per page as of right now.
+This came about because I was building a website and one of the goals was to have no images on the entire site. I didn't want to use something like recaptcha for human testing. It allows for both alphabetic and mathematic testing. There is also a method for simple **jQuery Validate** integration
 
-## Alphabetic testing
-For alphabetic testing, it gives a random string of letters and asks them to be sorted by alphabetic order, reverse alphabetic order or backwards from the way they are displayed
+## Text testing
+For text testing, it gives a random string of letters and asks the user to sort them by alphabetic order, reverse alphabetic order or backwards from the way they are displayed
 
-## Mathmatic testing
-For mathmatic testing, it provides 2 random numbers between 0 and 9. You can either choose the type of math to perform (addition or multiplication) or you can choose random.
+## Math testing
+For math testing, it provides 2 random numbers between 0 and 9. You can either choose the type of math to perform (addition or multiplication) or you can choose random.
+
+## Number testing
+For number testing, it gives a random listing of numbers and asks the user to sort them by numeric or reverse numeric order.
+
 
 ## Usage
 Using textCaptcha is as easy as typing 
@@ -24,9 +28,11 @@ or as complicated as
 ## Options
 
 ### Types
-**text** *Alphabetic functions*
+**text** *Texutal functions*
 
-**number** *Mathmatical functions*
+**math** *Math functions*
+
+**number** *Number functions*
 
 **random** *Self explanitory*
 
@@ -37,15 +43,19 @@ or as complicated as
 
 **backwards** *Asks user to enter characters backwards, only applies to **text** type*
 
-**add** *Asks user to add numbers, only applies to **number** type*
+**add** *Asks user to add numbers, only applies to **math** type*
 
-**multiply** *Asks user to multiply numbers, only applies to **number** type*
+**multiply** *Asks user to multiply numbers, only applies to **math** type*
+
+**numeric** *Asks user to put a list of numbers in numeric order, only applies to **number** type*
+
+**reverse_numeric** *Asks user to put a list of numbers in reverse numeric order, only applies to **number** type*
 
 **random** *Chooses random method for chosen type, not necessary if using random type*
 
 ### Length
 
-**length** *is only available for the **txt** type. It specifies the number of alpha characters to display*
+**length** *is available for the **text** and **number** types. It specifies the number of characters to display for that method.*
 
 ---
 
@@ -75,3 +85,14 @@ Then add it to your **jQuery Validate** rules like this:
 	});
 
 Please note that captcha_user is the input name for the user submitted captcha value. We added the captchaCheck rule for captcha_user to implement our custom Validator method.
+
+---
+## Notes
+- This plugin currently supports one form per page.
+- Put text-captcha call before validation to remove possibility of order of operation issues.
+
+
+## Todo
+- Refactor to allow more usage of textCaptcha more than once per page.
+- Add more math methods (subtraction).
+- Add more to readme

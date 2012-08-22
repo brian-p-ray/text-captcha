@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>textCaptcha - number test</title>
+		<style type="text/css">
+			input {
+				display: block;
+			}
+		</style>
+		<link type="text/css" rel="stylesheet" href="../textCaptcha.css" />
+		<script type="text/javascript" src="../../../maxsurgevip/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../jquery.textCaptcha.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#testform').textCaptcha({
+					type: 'number',
+					method: 'numeric',
+					length: 6
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<form method="post" id="testform" action="">
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" />
+			<label for="email">Email</label>
+			<input type="text" id="email" name="email" />
+			<input type="submit" value="check" id="form_submit" />
+		</form>
+	</body>
+</html>
