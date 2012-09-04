@@ -1,6 +1,8 @@
 # Text Captcha jQuery plugin
 
-This came about because I was building a website and one of the goals was to have no images on the entire site. I didn't want to use something like recaptcha for human testing. It allows for both alphabetic and mathematic testing. There is also a method for simple **jQuery Validate** integration
+**Can now be used more than once per page**
+
+This came about because I was building a website and one of the goals was to have no images on the entire site. I didn't want to use something like recaptcha for human testing. It allows for both alphabetic and mathematic testing. There is also a method for simple [jQuery Validate](http://bassistance.de/jquery-plugins/jquery-plugin-validation/) integration
 
 ## Text testing
 For text testing, it gives a random string of letters and asks the user to sort them by alphabetic order, reverse alphabetic order or backwards from the way they are displayed
@@ -93,6 +95,6 @@ Please note that captcha_user is the input name for the user submitted captcha v
 
 
 ## Todo
-- Refactor to allow more usage of textCaptcha more than once per page.
 - Add more math methods (subtraction).
-- Add more to readme
+- Expand readme
+- Add ability to choose where in the form to place the captcha fields (container option)

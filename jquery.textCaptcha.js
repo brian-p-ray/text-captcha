@@ -1,8 +1,8 @@
 /*!
 * jQuery Text Captcha Plugin
 * Copyright (c) 2012 Brian Ray
-* Version: 0.2 (22-AUG-2012)
-* Licensed under the DBAD license.
+* Version: 0.3 (02-SEP-2012)
+* Licensed under the Phil Sturgeon's DBAD license.
 * Requires: jQuery v1.4.2 or later
 */
 (function($){
@@ -152,11 +152,17 @@
 			}
 			
 			function output(el) {
-				var output = '<p><span id="type_captcha_method">'+captcha_method_text+'</span>: <span id="captcha">'+captcha_string+'</span></p>';
-				output += '<input type="text" id="captcha_user" name="captcha_user" />';
-				output += '<input type="hidden" id="captcha_type" name="captcha_type" value="'+options.type+'" />';
-				output += '<input type="hidden" id="captcha_method" name="captcha_method" value="'+options.method+'" />';
-				output += '<input type="hidden" id="captcha_value" name="captcha_value" value="'+captcha_string+'" />';
+				var identifier = '';
+				for (i=0; i<numbers.length; i++) {
+					identifier += numbers[Math.floor(Math.random()*numbers.length)];
+				}
+				// find element where id starts with...
+				// $('div[id^="list"]');
+				var output = '<p><span id="type_captcha_method_"'+ identifier + '>'+captcha_method_text+'</span>: <span id="captcha">'+captcha_string+'</span></p>';
+				output += '<input type="text" id="captcha_user_'+ identifier + '" name="captcha_user" />';
+				output += '<input type="hidden" id="captcha_type_'+ identifier + '" name="captcha_type" value="'+options.type+'" />';
+				output += '<input type="hidden" id="captcha_method_'+ identifier + '" name="captcha_method" value="'+options.method+'" />';
+				output += '<input type="hidden" id="captcha_value_'+ identifier + '" name="captcha_value" value="'+captcha_string+'" />';
 	
 				el.children(':submit').before(output);
 			}
@@ -172,17 +178,18 @@
 	};
 	
 	$.fn.textCaptchaCheck = function() {
+		var $this = $(this);
 		var value,
 			correct_value = '',
-			captcha_type = $('#captcha_type').val(),
-			captcha_method = $('#captcha_method').val(),
-			captcha_user = $('#captcha_user').val();
+			captcha_type = $this.find('input[name="captcha_type"]').val(),
+			captcha_method = $this.find('input[name="captcha_method"]').val(),
+			captcha_user = $this.find('input[name="captcha_user"]').val();
 		
 		if (captcha_type == 'text' || captcha_type == 'number') {
-			value = $('#captcha_value').val().split(""); //grab the captcha value and turn it into an array
+			value = $this.find('input[name="captcha_value"]').val().split(""); //grab the captcha value and turn it into an array
 		}
 		else {
-			value = $('#captcha_value').val();
+			value = $this.find('input[name="captcha_value"]').val();
 		}
 
 		switch(captcha_method) {
@@ -226,7 +233,7 @@
 		else {
 			correct_value = value;
 		}
-
+		
 		if (captcha_user != correct_value) { //if the user inputted value does not match the modified string
 			return false;
 		}
