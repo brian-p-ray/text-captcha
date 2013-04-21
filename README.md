@@ -3,6 +3,7 @@
 This came about because I was building a website and one of the goals was to have no images on the entire site. I didn't want to use something like recaptcha for human testing. It allows for both alphabetic and mathematic testing. There is also a method for simple [jQuery Validate](http://bassistance.de/jquery-plugins/jquery-plugin-validation/) integration
 
 ## What's new?
+- **Added subtraction to math methods**
 - **Can now be used more than once per page**
 
 ## Text testing
