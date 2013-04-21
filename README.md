@@ -9,7 +9,7 @@ This came about because I was building a website and one of the goals was to hav
 For text testing, it gives a random string of letters and asks the user to sort them by alphabetic order, reverse alphabetic order or backwards from the way they are displayed
 
 ## Math testing
-For math testing, it provides 2 random numbers between 0 and 9. You can either choose the type of math to perform (addition or multiplication) or you can choose random.
+For math testing, it provides 2 random numbers between 0 and 9. You can either choose the type of math to perform (addition, subtraction or multiplication) or you can choose random.
 
 ## Number testing
 For number testing, it gives a random listing of numbers and asks the user to sort them by numeric or reverse numeric order.
@@ -95,6 +95,5 @@ Please note that captcha_user is the input name for the user submitted captcha v
 
 
 ## Todo
-- Add more math methods (subtraction).
 - Expand readme
 - Add ability to choose where in the form to place the captcha fields (container option)

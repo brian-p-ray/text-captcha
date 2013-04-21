@@ -18,7 +18,7 @@
 
 		var defaults = {
 			type: 'text', // Type of characters to display for captcha. Can be text, number or random.
-			method: 'alphabetic', // Type of sort to require the user to perform. Can be alphabetic, reverse_alphabetic, backwards or random if  type=text. Can be add, multiply or random if type=math
+			method: 'alphabetic', // Type of sort to require the user to perform. Can be alphabetic, reverse_alphabetic, backwards or random if  type=text. Can be add, subtract, multiply or random if type=math
 			length: 4 // Number of characters to display. I would suggest 4 to 6. Only applies if type=text.
 		};
 
@@ -28,10 +28,10 @@
 
 			var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
 				numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-				operators = {'add': '+', 'multiply': '*'},
+				operators = {'add': '+', 'subtract': '-', 'multiply': '*'},
 				types = ['text', 'math', 'number'],
 				text_methods = ['alphabetic', 'backwards', 'reverse_alphabetic'],
-				math_methods = ['add', 'multiply'],
+				math_methods = ['add', 'subtract', 'multiply'],
 				number_methods = ['numeric', 'reverse_numeric'],
 				captcha_operator = '',
 				captcha_string = '', num1, num2, // set strings to hold the random values
@@ -81,9 +81,14 @@
 				case 'reverse_alphabetic':
 					captcha_method_text = 'Type this string in reverse alphabetical order';
 				break;
+				
 				// math
 				case 'add':
 					captcha_method_text = 'Add these numbers';
+				break;
+				
+				case 'subtract':
+				    captcha_method_text = 'Subtract these numbers';
 				break;
 
 				case 'multiply':
@@ -156,7 +161,7 @@
 				}
 				// find element where id starts with...
 				// $('div[id^="list"]');
-				var output = '<p><span id="type_captcha_method_"'+ identifier + '>'+captcha_method_text+'</span>: <span id="captcha">'+captcha_string+'</span></p>';
+				var output = '<p><span id="type_captcha_method_'+ identifier + '">'+captcha_method_text+'</span>: <span id="captcha">'+captcha_string+'</span></p>';
 				output += '<input type="text" id="captcha_user_'+ identifier + '" name="captcha_user" />';
 				output += '<input type="hidden" id="captcha_type_'+ identifier + '" name="captcha_type" value="'+options.type+'" />';
 				output += '<input type="hidden" id="captcha_method_'+ identifier + '" name="captcha_method" value="'+options.method+'" />';
@@ -188,7 +193,11 @@
 		}
 		else {
 			value = $this.find('input[name="captcha_value"]').val();
+			// set captcha_user to an int
+			captcha_user = parseInt(captcha_user, 10);
 		}
+		
+		
 
 		switch(captcha_method) {
 			// text
@@ -207,11 +216,15 @@
 
 			// math
 			case 'add':
-				value = eval(value);
+				value = parseInt(eval(value), 10);
+			break;
+			
+			case 'subtract':
+				value = parseInt(eval(value), 10);
 			break;
 
 			case 'multiply':
-				value = eval(value);
+				value = parseInt(eval(value), 10);
 			break;
 
 			//number
