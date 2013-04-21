@@ -22,7 +22,7 @@ Using textCaptcha is as easy as typing
 
 or as complicated as
 
-	$('#testform').textCaptcha({
+	$('formElement').textCaptcha({
 		type: 'text',
 		method: 'backwards',
 		length: 6
