@@ -19,7 +19,8 @@
 		var defaults = {
 			type: 'text', // Type of characters to display for captcha. Can be text, number or random.
 			method: 'alphabetic', // Type of sort to require the user to perform. Can be alphabetic, reverse_alphabetic, backwards or random if  type=text. Can be add, subtract, multiply or random if type=math
-			length: 4 // Number of characters to display. I would suggest 4 to 6. Only applies if type=text.
+			length: 4, // Number of characters to display. I would suggest 4 to 6. Only applies if type=text.
+			target: null // target to append textCaptcha elements
 		};
 
 		var options = $.extend(defaults, options);
@@ -81,12 +82,12 @@
 				case 'reverse_alphabetic':
 					captcha_method_text = 'Type this string in reverse alphabetical order';
 				break;
-				
+
 				// math
 				case 'add':
 					captcha_method_text = 'Add these numbers';
 				break;
-				
+
 				case 'subtract':
 				    captcha_method_text = 'Subtract these numbers';
 				break;
@@ -167,7 +168,12 @@
 				output += '<input type="hidden" id="captcha_method_'+ identifier + '" name="captcha_method" value="'+options.method+'" />';
 				output += '<input type="hidden" id="captcha_value_'+ identifier + '" name="captcha_value" value="'+captcha_string+'" />';
 
-				el.find(':submit').before(output);
+				if(options.target === null) {
+					el.find(':submit').before(output);
+				}
+				else {
+					$(options.target).append(output);
+				}
 			}
 
 			function mismatch_error() {
@@ -196,8 +202,8 @@
 			// set captcha_user to an int
 			captcha_user = parseInt(captcha_user, 10);
 		}
-		
-		
+
+
 
 		switch(captcha_method) {
 			// text
@@ -218,7 +224,7 @@
 			case 'add':
 				value = parseInt(eval(value), 10);
 			break;
-			
+
 			case 'subtract':
 				value = parseInt(eval(value), 10);
 			break;

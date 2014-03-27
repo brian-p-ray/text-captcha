@@ -17,7 +17,7 @@ For number testing, it gives a random listing of numbers and asks the user to so
 
 
 ## Usage
-Using textCaptcha is as easy as typing 
+Using textCaptcha is as easy as typing
 
 	$('formElement').textCaptcha();
 
@@ -58,8 +58,10 @@ or as complicated as
 **random** *Chooses random method for chosen type, not necessary if using random type*
 
 ### Length
-
 **length** *is available for the **text** and **number** types. It specifies the number of characters to display for that method.*
+
+### Target
+**target** *tells **Text Captcha** where in the form to place the created **Text Captcha** fields.*
 
 ---
 
@@ -78,7 +80,7 @@ Using this with jQuery validate is quite simple. Just add the method below and c
 		"Captcha value does not match");
 
 Then add it to your **jQuery Validate** rules like this:
-				
+
 	$("formElement").validate({
 		rules: {
 			captcha_user: {
@@ -93,8 +95,3 @@ Please note that captcha_user is the input name for the user submitted captcha v
 ---
 ## Notes
 - Put text-captcha call before validation to remove possibility of order of operation issues.
-
-
-## Todo
-- Expand readme
-- Add ability to choose where in the form to place the captcha fields (container option)
