@@ -41,27 +41,27 @@ or as complicated as
 **random** *Self explanitory*
 
 ### Methods
-**alphabetic** *Asks user to sort alphabetically, only applies to **text** type*
+**alphabetic** *Asks user to sort alphabetically, only applies to* **text** *type*
 
-**reverse_alphabetic** *Asks user to enter characters in reverse alphabetic order, only applies to **text** type*
+**reverse_alphabetic** *Asks user to enter characters in reverse alphabetic order, only applies to* **text** *type*
 
-**backwards** *Asks user to enter characters backwards, only applies to **text** type*
+**backwards** *Asks user to enter characters backwards, only applies to* **text** *type*
 
-**add** *Asks user to add numbers, only applies to **math** type*
+**add** *Asks user to add numbers, only applies to* **math** *type*
 
-**multiply** *Asks user to multiply numbers, only applies to **math** type*
+**multiply** *Asks user to multiply numbers, only applies to* **math** *type*
 
-**numeric** *Asks user to put a list of numbers in numeric order, only applies to **number** type*
+**numeric** *Asks user to put a list of numbers in numeric order, only applies to* **number** *type*
 
-**reverse_numeric** *Asks user to put a list of numbers in reverse numeric order, only applies to **number** type*
+**reverse_numeric** *Asks user to put a list of numbers in reverse numeric order, only applies to* **number** *type*
 
-**random** *Chooses random method for chosen type, not necessary if using random type*
+**random** *Chooses random method for chosen type, not necessary if using* **random** *type*
 
 ### Length
-**length** *is available for the **text** and **number** types. It specifies the number of characters to display for that method.*
+**length** *is available for the* **text** *and* **number** *types. It specifies the number of characters to display for that method.*
 
 ### Target
-**target** *tells **Text Captcha** where in the form to place the created **Text Captcha** fields.*
+**target** *tells* **Text Captcha** *where in the form to place the created* **Text Captcha** *fields.*
 
 ---
 
