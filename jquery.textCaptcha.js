@@ -7,7 +7,7 @@
 */
 (function($){
 
-	var ver = '0.3';
+	var ver = '0.4';
 
 	// provide log functionality for devs
 	function log() {
